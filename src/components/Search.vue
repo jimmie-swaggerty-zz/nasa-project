@@ -1,10 +1,13 @@
 <template>
   <div class="container-flex p-5 wrapper bg-dark">
+    <!-- Header -->
     <img
       src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg"
       class="header-image"
     />
     <h1 class="text-white mb-3 header">Mars Rover Gallery</h1>
+
+    <!-- Main body -->
     <div class="card p-5 m-5">
       <p>
         Welcome to the Mars Rover Gallery, brought to you by
@@ -18,6 +21,8 @@
       <p>
         To get started, please select from one of the three available rovers.
       </p>
+
+      <!-- Form -->
       <form v-on:submit.prevent="getResult(rover, date)">
         <div class="d-flex justify-content-center align-items-end">
           <div class="col-2 m-3">
@@ -47,6 +52,8 @@
           </div>
         </div>
       </form>
+
+      <!-- Conditional Response for first results -->
       <div v-if="results">
         <div v-model="results">
           {{
@@ -58,7 +65,7 @@
             <label class="form-label">Please select a camera to view</label>
           </div>
           <div class="justify-content-center row">
-            <div v-for="camera in results.cameras" class="col-3 mb-3">
+            <div v-for="camera in results.cameras" class="col mb-3">
               <button
                 v-on:click="getPhotos(camera, rover, photos)"
                 class="btn btn-primary w-100"
@@ -69,9 +76,15 @@
           </div>
         </div>
       </div>
-      <div v-else>
-        <h1 class="">No Photos</h1>
+
+      <!-- Conditional Response if no Photos -->
+      <div v-else class="card">
+        <h1 class="m-5">
+          There are no photos for this date. Please select another one!
+        </h1>
       </div>
+
+      <!--Photos-->
       <div v-if="photos" class="card bg-light p-3">
         <div class="row">
           <div v-for="photo in photos" class="image-holder col-4 mb-3">
@@ -83,6 +96,7 @@
   </div>
 </template>
 
+<!--Thank you for viewing my first Vue application! I am so excited to show my adaptability and passion for web development! Because this was my first Vue App, I followed syntax styling as I know it. I look forward to learning more!-->
 <script>
 import axios from "axios";
 export default {

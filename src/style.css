@@ -1,12 +1,16 @@
 .wrapper {
   width: 100vw;
   min-height: 100vh;
-  background-image: url('https://1gew6o3qn6vx9kp3s42ge0y1-wpengine.netdna-ssl.com/wp-content/uploads/prod/2020/10/HERO-ART-microsoft_azure_1920x1000_nologo.jpg');
+  background-image: url("https://1gew6o3qn6vx9kp3s42ge0y1-wpengine.netdna-ssl.com/wp-content/uploads/prod/2020/10/HERO-ART-microsoft_azure_1920x1000_nologo.jpg");
   background-position-x: center;
 }
 
 .image {
-  width: 100%
+  width: 100%;
+}
+
+.image:hover {
+  border: 3px solid blue;
 }
 
 .header {
