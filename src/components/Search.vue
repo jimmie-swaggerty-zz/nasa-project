@@ -68,7 +68,7 @@
             <div v-for="camera in results.cameras" class="col mb-3">
               <button
                 v-on:click="getPhotos(camera, rover, photos)"
-                class="btn btn-primary w-100"
+                class="btn btn-primary w-100 h-100"
               >
                 {{ cameraNames[camera] }}
               </button>

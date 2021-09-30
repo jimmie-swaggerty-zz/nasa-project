@@ -20,3 +20,7 @@
 .header-image {
   display: inline-block;
 }
+
+.h-100 {
+  height: 100%;
+}
