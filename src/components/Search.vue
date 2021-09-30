@@ -1,29 +1,40 @@
 <template>
-  <div class="search">
-   <h1>{{msg}}</h1>
+  <div class="container-flex p-5 wrapper bg-dark">
+    <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" class="header-image"/>
+   <h1 class="text-white mb-3">Mars Rover Gallery</h1>
    <form v-on:submit.prevent="getResult(rover,date)">
-     <select v-model="rover" class="input">
+     <div class="row">
+       <div class="col-5">
+     <select v-model="rover" class="form-select">
        <option disabled value="">Select a Rover</option>
        <option value="curiosity">Curiosity</option>
        <option value="opportunity">Opportunity</option>
        <option value="spirit">Spirit</option>
        </select>
-    <input type="date" placeholder="Type your search" v-model="date" class="input"/>
-    <input type="submit" value="Search" class="input"/>
+       </div>
+       <div class="col-5">
+    <input type="date" placeholder="Type your search" v-model="date" class="form-control"/>
+       </div>
+       <div class="col-2">
+    <input type="submit" value="Search" class="btn btn-light form-control"/>
+       </div>
+       </div>
     </form>
     <div v-if="results">
       <div v-model="results">
       There are {{results.total_photos}} photos
       </div>
-      <div v-for="camera in results.cameras">
-        <button v-on:click="getPhotos(camera,rover,photos)">{{cameraNames[camera]}}</button>
+      <div class="row">
+      <div v-for="camera in results.cameras" class="col">
+        <button v-on:click="getPhotos(camera,rover,photos)" class="btn btn-dark">{{cameraNames[camera]}}</button>
+        </div>
         </div>
       </div>
       <div v-else>
-        <h1>No Photos</h1>
+        <h1 class="text-white">No Photos</h1>
         </div>
-        <div v-if="photos">
-          <div v-for="photo in photos" class="image-holder">
+        <div v-if="photos" class="row">
+          <div v-for="photo in photos" class="image-holder col-4 mb-3">
             <img v-bind:src="photo.img_src" class="image"/>
             </div>
           </div>

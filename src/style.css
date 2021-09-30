@@ -1,11 +1,8 @@
-.input {
-        display: inline-block;
-        height: 40px;
-        margin: 10px;
-        text-align: center;
+.wrapper {
+        width: 100vw;
+        min-height: 100vh;
 }
 
 .image {
-        width: 200px;
-        display: inline-block;
+        width: 100%
 }
